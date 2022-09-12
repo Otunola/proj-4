@@ -14,9 +14,11 @@ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -   (this is to te
 10. body-parser package needs to be instaaled to help process json files passed in request to the server. and its installed with the command : sudo npm install body-parser
 11. Since the project requires us to mplement a simple Book Register web form using MEAN stack, so we create a directory called books and cd into it with the command : mkdir Books && cd Books
 12. In the book directory, initialise the npm project with the command below and answer the prompted questions: npm init
-13. add a file name to the book directory named server : touch server.js
-14. paste the code below to the server.js file with Vim : vi server.js
-15. var express = require('express');
+13. <img width="835" alt="Screen Shot 2022-09-12 at 1 38 00 AM" src="https://user-images.githubusercontent.com/112595648/189736216-0208e9ec-dcc2-4600-9420-77b08234f20c.png">
+
+14. add a file name to the book directory named server : touch server.js
+15. paste the code below to the server.js file with Vim : vi server.js
+16. var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 app.use(express.static(__dirname + '/public'));
