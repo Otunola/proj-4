@@ -131,5 +131,63 @@ app.controller('myCtrl', function($scope, $http) {
   };
 });
 
+29. Create a file named index.html in the public folder, then copy and paste the code below in to the index.html with the command : vi indexx.html
+30. 
+<!doctype html>
+<html ng-app="myApp" ng-controller="myCtrl">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td><input type="text" ng-model="Name"></td>
+        </tr>
+        <tr>
+          <td>Isbn:</td>
+          <td><input type="text" ng-model="Isbn"></td>
+        </tr>
+        <tr>
+          <td>Author:</td>
+          <td><input type="text" ng-model="Author"></td>
+        </tr>
+        <tr>
+          <td>Pages:</td>
+          <td><input type="number" ng-model="Pages"></td>
+        </tr>
+      </table>
+      <button ng-click="add_book()">Add</button>
+    </div>
+    <hr>
+    <div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Isbn</th>
+          <th>Author</th>
+          <th>Pages</th>
 
+        </tr>
+        <tr ng-repeat="book in books">
+          <td>{{book.name}}</td>
+          <td>{{book.isbn}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.pages}}</td>
 
+          <td><input type="button" value="Delete" data-ng-click="del_book(book)"></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
+
+29. Change the directory back into Books with : cd ..
+30. start the server by running the commnd : node server.js
+31. <img width="765" alt="Screen Shot 2022-09-12 at 1 55 30 AM" src="https://user-images.githubusercontent.com/112595648/189743798-e4a7321e-e284-4051-8e04-c931f7de06f2.png">
+32. From the image above, the server is up and running and we can connect to it via port 3300. but then we need to open TCP port 3300 in your AWS console as shown in the image below
+33. ![Screen Shot 2022-09-12 at 1 56 03 AM](https://user-images.githubusercontent.com/112595648/189744269-62fb016b-0dcf-48a6-951d-262f1b12d9ea.png)
+34. now open ur instance ip address slash 3300 on the a new tab and below should be seen
+35. ![Screen Shot 2022-09-12 at 1 57 35 AM](https://user-images.githubusercontent.com/112595648/189744708-3859c659-bcde-4aff-a2cf-8c41419fd79a.png)
