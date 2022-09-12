@@ -191,3 +191,4 @@ app.controller('myCtrl', function($scope, $http) {
 33. ![Screen Shot 2022-09-12 at 1 56 03 AM](https://user-images.githubusercontent.com/112595648/189744269-62fb016b-0dcf-48a6-951d-262f1b12d9ea.png)
 34. now open ur instance ip address slash 3300 on the a new tab and below should be seen
 35. ![Screen Shot 2022-09-12 at 1 57 35 AM](https://user-images.githubusercontent.com/112595648/189744708-3859c659-bcde-4aff-a2cf-8c41419fd79a.png)
+ 
