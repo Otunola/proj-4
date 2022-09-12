@@ -26,7 +26,51 @@ app.set('port', 3300);
 app.listen(app.get('port'), function() {
     console.log('Server up: http://localhost:' + app.get('port'));
 });
-![image](https://user-images.githubusercontent.com/112595648/189731492-ee2ccf93-e565-4c52-b27e-e899c50fc890.png)
+
+16. since mongoDB is already istalled,we now Install Express and set up routes to the server and also install mongooose package to provide a striaght-forward schema-based solution to your application data.
+17. install mongoose with the command : sudo npm install express mongoose
+18. Then in books folder create a folder named apps and cd into it with the command : mkdir apps && cd apps
+19. create a file named route.js with command : touch route.js
+20. paste the code below to the route.js file created with the command : vi route.js
+21. var Book = require('./models/book');
+module.exports = function(app) {
+  app.get('/book', function(req, res) {
+    Book.find({}, function(err, result) {
+      if ( err ) throw err;
+      res.json(result);
+    });
+  }); 
+  app.post('/book', function(req, res) {
+    var book = new Book( {
+      name:req.body.name,
+      isbn:req.body.isbn,
+      author:req.body.author,
+      pages:req.body.pages
+    });
+    book.save(function(err, result) {
+      if ( err ) throw err;
+      res.json( {
+        message:"Successfully added book",
+        book:result
+      });
+    });
+  });
+  app.delete("/book/:isbn", function(req, res) {
+    Book.findOneAndRemove(req.query, function(err, result) {
+      if ( err ) throw err;
+      res.json( {
+        message: "Successfully deleted the book",
+        book: result
+      });
+    });
+  });
+  var path = require('path');
+  app.get('*', function(req, res) {
+    res.sendfile(path.join(__dirname + '/public', 'index.html'));
+  });
+};
+
+
 
 
 
